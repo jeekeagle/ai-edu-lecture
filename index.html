@@ -91,8 +91,6 @@
     /* ── ZH Content ── */
     .zh { display: block; }
 
-    body.en .zh { display: none; }
-    body.en .en { display: block; }
 
     .header-label {
       font-family: 'Oswald', 'Inter', sans-serif;
@@ -218,8 +216,6 @@
       letter-spacing: -0.01em;
       display: none;
     }
-    body.en .module-title { display: none; }
-    body.en .module-title-en { display: block; }
 
     .module-desc {
       font-size: 13px;
@@ -275,7 +271,13 @@
       border-top: 1px solid rgba(37,99,235,0.08);
     }
     .card-footer p { font-size: 11px; color: rgba(37,99,235,0.5); letter-spacing: 0.04em; text-align: center; }
-  </style>
+  
+[data-lang="en"] .zh { display: none; }
+[data-lang="en"] .en { display: block; }
+[data-lang="en"] .module-title { display: none; }
+[data-lang="en"] .module-title-en { display: block; }
+
+</style>
 </head>
 <body data-lang="zh">
 
@@ -321,7 +323,7 @@
       <p>本讲座采用<strong>「总分总」三分法框架</strong>：先构建全局认知，再逐层展开工具与应用，最终通过完整案例让方法论内化于心。每位教师听完将带走<strong>可落地的工具工作流</strong>。</p>
     </div>
     <!-- INTRO EN -->
-    <div class="outline-intro en" style="padding:28px 0 24px;border-bottom:1px solid rgba(37,99,235,0.1);">
+    <div class="outline-intro en" style="display:none;padding:28px 0 24px;border-bottom:1px solid rgba(37,99,235,0.1);">
       <p>This lecture adopts a <strong>"Top-Total-Structure" three-part framework</strong>: first establishing overarching cognition, then expanding tools and applications layer by layer, and finally internalizing methodology through a complete case study. Every teacher will leave with <strong>a hands-on AI workflow</strong>.</p>
     </div>
 
