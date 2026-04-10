@@ -3,759 +3,362 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>AI 时代的教学新范式 — 青岛市明德学校专场讲座</title>
-  <link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@300;400;500;600&family=Source+Code+Pro:wght@400;500;700&display=swap" rel="stylesheet">
+  <title>AI 时代的教学新范式 · 讲座大纲</title>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@700;900&family=Noto+Sans+SC:wght@400;500;700&family=Inter:wght@400;600;700&family=Oswald:wght@500;700&display=swap" rel="stylesheet">
   <style>
-    :root {
-      --purple: #533afd;
-      --purple-hover: #4434d4;
-      --purple-light: #b9b9f9;
-      --purple-soft: #d6d9fc;
-      --navy: #061b31;
-      --brand-dark: #1c1e54;
-      --slate: #64748b;
-      --slate-light: #94a3b8;
-      --border: #e5edf5;
-      --border-dark: rgba(255,255,255,0.1);
-      --white: #ffffff;
-      --success: #15be53;
-      --shadow-blue: rgba(50,50,93,0.25);
-      --shadow-black: rgba(0,0,0,0.1);
-      --shadow-ambient: rgba(23,23,23,0.08);
-      --font-sans: 'Source Sans 3', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
-      --font-mono: 'Source Code Pro', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
-    }
-
-    *, *::before, *::after {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    html {
-      scroll-behavior: smooth;
-    }
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 
     body {
-      font-family: var(--font-sans);
-      color: var(--navy);
-      background: var(--white);
-      line-height: 1.6;
-      -webkit-font-smoothing: antialiased;
-    }
-
-    /* ── NAV ── */
-    nav {
-      position: sticky;
-      top: 0;
-      z-index: 100;
-      background: rgba(255,255,255,0.85);
-      backdrop-filter: blur(12px);
-      -webkit-backdrop-filter: blur(12px);
-      border-bottom: 1px solid var(--border);
-    }
-    .nav-inner {
-      max-width: 1080px;
-      margin: 0 auto;
-      padding: 0 24px;
-      height: 60px;
+      background: #0a0f1a;
       display: flex;
       align-items: center;
-      justify-content: space-between;
-    }
-    .nav-logo {
-      font-family: var(--font-mono);
-      font-size: 13px;
-      font-weight: 500;
-      color: var(--navy);
-      letter-spacing: 0.5px;
-    }
-    .nav-logo span {
-      color: var(--purple);
-    }
-    .nav-badge {
-      font-family: var(--font-mono);
-      font-size: 11px;
-      color: var(--success);
-      background: rgba(21,190,83,0.12);
-      border: 1px solid rgba(21,190,83,0.3);
-      padding: 3px 10px;
-      border-radius: 4px;
-      letter-spacing: 0.5px;
+      justify-content: center;
+      min-height: 100vh;
+      padding: 40px 20px;
+      font-family: 'Noto Sans SC', 'Inter', sans-serif;
     }
 
-    /* ── HERO ── */
-    .hero {
-      padding: 100px 24px 80px;
-      text-align: center;
-      position: relative;
+    /* ── CARD ── */
+    .card {
+      width: 480px;
+      max-width: 100%;
+      background: #f0f4fb;
+      border-radius: 6px;
       overflow: hidden;
+      box-shadow:
+        0 4px 6px rgba(10,15,26,0.04),
+        0 20px 60px rgba(10,15,26,0.18),
+        0 0 0 1px rgba(37,99,235,0.08);
     }
-    .hero::before {
+
+    /* ── TOP BLUE HEADER ── */
+    .card-header {
+      background: #1a3a6e;
+      background-image: repeating-linear-gradient(
+        -45deg,
+        transparent,
+        transparent 8px,
+        rgba(255,255,255,0.015) 8px,
+        rgba(255,255,255,0.015) 16px
+      );
+      padding: 36px 40px 32px;
+      position: relative;
+    }
+    .card-header::after {
       content: '';
       position: absolute;
-      top: -120px;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 600px;
-      height: 600px;
-      background: radial-gradient(circle, rgba(83,58,253,0.08) 0%, transparent 70%);
-      pointer-events: none;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, #3b82f6, #60a5fa, #93c5fd);
     }
-    .hero-eyebrow {
-      font-family: var(--font-mono);
-      font-size: 11px;
-      font-weight: 500;
-      color: var(--purple);
-      letter-spacing: 3px;
-      text-transform: uppercase;
-      margin-bottom: 24px;
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-    }
-    .hero-eyebrow::before,
-    .hero-eyebrow::after {
-      content: '';
-      display: block;
-      width: 24px;
-      height: 1px;
-      background: var(--purple-light);
-    }
-    .hero-title {
-      font-size: clamp(36px, 6vw, 64px);
-      font-weight: 300;
-      color: var(--navy);
-      line-height: 1.08;
-      letter-spacing: -1.5px;
-      margin-bottom: 20px;
-      max-width: 800px;
-      margin-left: auto;
-      margin-right: auto;
-    }
-    .hero-title em {
-      font-style: normal;
-      background: linear-gradient(135deg, var(--purple), #7c6af7);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-    }
-    .hero-sub {
-      font-size: 18px;
-      font-weight: 300;
-      color: var(--slate);
-      max-width: 560px;
-      margin: 0 auto 40px;
-      line-height: 1.7;
-    }
-    .hero-meta {
-      display: flex;
-      justify-content: center;
-      gap: 32px;
-      flex-wrap: wrap;
-    }
-    .hero-meta-item {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      font-family: var(--font-mono);
-      font-size: 13px;
-      color: var(--slate);
-    }
-    .hero-meta-item svg {
-      width: 16px;
-      height: 16px;
-      color: var(--purple);
-      flex-shrink: 0;
-    }
-    .hero-cta {
-      margin-top: 48px;
-      display: flex;
-      justify-content: center;
-      gap: 16px;
-      flex-wrap: wrap;
-    }
-    .btn-primary {
-      background: var(--purple);
-      color: var(--white);
-      font-family: var(--font-sans);
-      font-size: 15px;
-      font-weight: 500;
-      padding: 14px 32px;
-      border: none;
-      border-radius: 4px;
-      cursor: pointer;
-      transition: background 0.2s, transform 0.2s, box-shadow 0.2s;
-      text-decoration: none;
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-    }
-    .btn-primary:hover {
-      background: var(--purple-hover);
-      transform: translateY(-1px);
-      box-shadow: 0 8px 24px rgba(83,58,253,0.3);
-    }
-    .btn-ghost {
-      background: transparent;
-      color: var(--purple);
-      font-family: var(--font-sans);
-      font-size: 15px;
-      font-weight: 500;
-      padding: 14px 32px;
-      border: 1.5px solid var(--purple-light);
-      border-radius: 4px;
-      cursor: pointer;
-      transition: all 0.2s;
-      text-decoration: none;
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-    }
-    .btn-ghost:hover {
-      background: rgba(83,58,253,0.05);
-      border-color: var(--purple);
-      transform: translateY(-1px);
-    }
-
-    /* ── PROMISE ── */
-    .promise {
-      background: var(--brand-dark);
-      padding: 64px 24px;
-      text-align: center;
-    }
-    .promise-label {
-      font-family: var(--font-mono);
+    .header-label {
+      font-family: 'Oswald', 'Inter', sans-serif;
       font-size: 10px;
-      color: rgba(255,255,255,0.4);
-      letter-spacing: 3px;
-      text-transform: uppercase;
-      margin-bottom: 20px;
-    }
-    .promise-text {
-      font-size: clamp(20px, 3.5vw, 28px);
-      font-weight: 300;
-      color: var(--white);
-      max-width: 720px;
-      margin: 0 auto;
-      line-height: 1.5;
-      letter-spacing: -0.3px;
-    }
-    .promise-text strong {
-      font-weight: 600;
-      color: #a89cff;
-    }
-
-    /* ── SECTIONS ── */
-    .section {
-      padding: 96px 24px;
-      max-width: 1080px;
-      margin: 0 auto;
-    }
-    .section-dark {
-      background: #f8f9fc;
-    }
-    .section-header {
-      text-align: center;
-      margin-bottom: 64px;
-    }
-    .section-num {
-      font-family: var(--font-mono);
-      font-size: 11px;
-      color: var(--purple);
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      margin-bottom: 12px;
-    }
-    .section-title {
-      font-size: clamp(28px, 4vw, 40px);
-      font-weight: 300;
-      color: var(--navy);
-      letter-spacing: -0.8px;
-      margin-bottom: 16px;
-    }
-    .section-desc {
-      font-size: 17px;
-      font-weight: 300;
-      color: var(--slate);
-      max-width: 520px;
-      margin: 0 auto;
-      line-height: 1.7;
-    }
-
-    /* ── MODULE CARDS ── */
-    .modules-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 24px;
-    }
-    @media (max-width: 768px) {
-      .modules-grid { grid-template-columns: 1fr; }
-    }
-    .module-card {
-      background: var(--white);
-      border: 1px solid var(--border);
-      border-radius: 6px;
-      padding: 36px 28px;
-      position: relative;
-      transition: transform 0.25s, box-shadow 0.25s;
-    }
-    .module-card:hover {
-      transform: translateY(-4px);
-      box-shadow: var(--shadow-blue) 0 30px 45px -30px, var(--shadow-black) 0 18px 36px -18px;
-    }
-    .module-num {
-      font-family: var(--font-mono);
-      font-size: 11px;
       font-weight: 700;
-      color: var(--white);
-      background: var(--purple);
-      width: 28px;
-      height: 28px;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin-bottom: 20px;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.45);
+      margin-bottom: 14px;
     }
-    .module-icon {
-      width: 44px;
-      height: 44px;
-      background: rgba(83,58,253,0.08);
-      border-radius: 10px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin-bottom: 20px;
-      font-size: 22px;
+    .header-title {
+      font-family: 'Noto Serif SC', serif;
+      font-size: 32px;
+      font-weight: 900;
+      color: #ffffff;
+      line-height: 1.1;
+      letter-spacing: -0.02em;
+      margin-bottom: 8px;
     }
-    .module-title {
-      font-size: 20px;
-      font-weight: 500;
-      color: var(--navy);
-      margin-bottom: 12px;
-      letter-spacing: -0.2px;
+    .header-title span {
+      color: #93c5fd;
     }
-    .module-sub {
-      font-size: 13px;
-      font-weight: 500;
-      color: var(--purple);
-      margin-bottom: 16px;
-      letter-spacing: 0.3px;
-    }
-    .module-text {
-      font-size: 15px;
-      font-weight: 300;
-      color: var(--slate);
-      line-height: 1.75;
-    }
-    .module-divider {
-      height: 1px;
-      background: var(--border);
-      margin: 24px 0;
-    }
-    .module-points {
-      list-style: none;
-    }
-    .module-points li {
+    .header-sub {
       font-size: 14px;
-      font-weight: 300;
-      color: var(--slate);
-      padding: 6px 0;
-      padding-left: 18px;
-      position: relative;
-      line-height: 1.5;
+      color: rgba(255,255,255,0.5);
+      font-weight: 400;
+      letter-spacing: 0.02em;
+      margin-top: 8px;
     }
-    .module-points li::before {
+    .header-meta {
+      display: flex;
+      gap: 20px;
+      margin-top: 20px;
+    }
+    .header-meta-item {
+      font-family: 'Inter', sans-serif;
+      font-size: 11px;
+      color: rgba(255,255,255,0.45);
+      letter-spacing: 0.05em;
+    }
+    .header-meta-item strong {
+      color: #93c5fd;
+      font-weight: 600;
+    }
+
+    /* ── BODY ── */
+    .card-body {
+      padding: 0 40px 36px;
+    }
+
+    /* ── OUTLINE INTRO ── */
+    .outline-intro {
+      padding: 28px 0 24px;
+      border-bottom: 1px solid rgba(37,99,235,0.1);
+    }
+    .outline-intro p {
+      font-size: 14px;
+      line-height: 1.8;
+      color: #4a5568;
+      font-weight: 400;
+    }
+    .outline-intro p strong {
+      color: #1a3a6e;
+      font-weight: 700;
+    }
+
+    /* ── MODULES ── */
+    .modules {
+      padding-top: 28px;
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+    }
+
+    .module {
+      position: relative;
+      padding: 0 0 28px 32px;
+    }
+    .module:last-child {
+      padding-bottom: 0;
+    }
+
+    /* Vertical timeline line */
+    .module::before {
+      content: '';
+      position: absolute;
+      left: 7px;
+      top: 8px;
+      bottom: 0;
+      width: 2px;
+      background: linear-gradient(to bottom, #3b82f6 0%, rgba(59,130,246,0.15) 100%);
+      border-radius: 2px;
+    }
+    .module:last-child::before {
+      display: none;
+    }
+
+    /* Dot on the timeline */
+    .module::after {
       content: '';
       position: absolute;
       left: 0;
-      top: 50%;
-      transform: translateY(-50%);
-      width: 6px;
-      height: 6px;
+      top: 4px;
+      width: 16px;
+      height: 16px;
       border-radius: 50%;
-      background: var(--purple-light);
+      background: #3b82f6;
+      box-shadow: 0 0 0 4px rgba(59,130,246,0.12);
     }
 
-    /* ── TIMELINE ── */
-    .timeline {
-      max-width: 640px;
-      margin: 0 auto;
-      position: relative;
+    .module-header {
+      display: flex;
+      align-items: baseline;
+      gap: 12px;
+      margin-bottom: 8px;
     }
-    .timeline::before {
+    .module-num {
+      font-family: 'Oswald', 'Inter', sans-serif;
+      font-size: 10px;
+      font-weight: 700;
+      color: #3b82f6;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+    }
+    .module-time {
+      font-family: 'Inter', sans-serif;
+      font-size: 10px;
+      color: rgba(37,99,235,0.5);
+      letter-spacing: 0.08em;
+      margin-left: auto;
+    }
+    .module-title {
+      font-family: 'Noto Serif SC', serif;
+      font-size: 19px;
+      font-weight: 700;
+      color: #1a2a4a;
+      line-height: 1.3;
+      letter-spacing: -0.01em;
+    }
+    .module-desc {
+      font-size: 13px;
+      line-height: 1.75;
+      color: #64748b;
+      margin-top: 6px;
+      font-weight: 400;
+    }
+    .module-topics {
+      margin-top: 10px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+    .topic-tag {
+      font-size: 11px;
+      color: #2563eb;
+      background: rgba(37,99,235,0.07);
+      border: 1px solid rgba(37,99,235,0.15);
+      padding: 3px 10px;
+      border-radius: 3px;
+      font-weight: 500;
+      letter-spacing: 0.02em;
+    }
+
+    /* ── KEY INSIGHT ── */
+    .key-insight {
+      margin-top: 28px;
+      background: #1a3a6e;
+      border-radius: 4px;
+      padding: 20px 24px;
+      position: relative;
+      overflow: hidden;
+    }
+    .key-insight::before {
       content: '';
       position: absolute;
-      left: 20px;
       top: 0;
-      bottom: 0;
-      width: 1px;
-      background: var(--border);
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, #3b82f6, #60a5fa, #93c5fd);
     }
-    .timeline-item {
-      display: flex;
-      gap: 28px;
-      margin-bottom: 40px;
-    }
-    .timeline-item:last-child { margin-bottom: 0; }
-    .timeline-dot {
-      width: 41px;
-      height: 41px;
-      border-radius: 50%;
-      background: var(--white);
-      border: 2px solid var(--border);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-shrink: 0;
-      position: relative;
-      z-index: 1;
-      font-family: var(--font-mono);
-      font-size: 11px;
+    .key-insight-label {
+      font-family: 'Oswald', 'Inter', sans-serif;
+      font-size: 9px;
       font-weight: 700;
-      color: var(--purple);
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.4);
+      margin-bottom: 8px;
     }
-    .timeline-item.active .timeline-dot {
-      background: var(--purple);
-      border-color: var(--purple);
-      color: var(--white);
-    }
-    .timeline-content {}
-    .timeline-time {
-      font-family: var(--font-mono);
-      font-size: 12px;
-      color: var(--slate-light);
-      margin-bottom: 6px;
-      letter-spacing: 0.5px;
-    }
-    .timeline-title {
-      font-size: 17px;
-      font-weight: 500;
-      color: var(--navy);
-      margin-bottom: 6px;
-    }
-    .timeline-desc {
+    .key-insight-text {
       font-size: 14px;
-      font-weight: 300;
-      color: var(--slate);
-      line-height: 1.6;
+      line-height: 1.7;
+      color: rgba(255,255,255,0.85);
+      font-weight: 400;
+    }
+    .key-insight-text strong {
+      color: #93c5fd;
+      font-weight: 700;
     }
 
-    /* ── SPEAKER ── */
-    .speaker {
-      display: flex;
-      align-items: center;
-      gap: 32px;
-      max-width: 540px;
-      margin: 0 auto;
-    }
-    .speaker-avatar {
-      width: 88px;
-      height: 88px;
-      border-radius: 50%;
-      background: linear-gradient(135deg, var(--purple), #7c6af7);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 36px;
-      flex-shrink: 0;
-      box-shadow: 0 0 0 4px var(--white), 0 0 0 6px var(--purple-light);
-    }
-    .speaker-info {}
-    .speaker-name {
-      font-size: 20px;
-      font-weight: 500;
-      color: var(--navy);
-      margin-bottom: 6px;
-    }
-    .speaker-title {
-      font-size: 14px;
-      font-weight: 300;
-      color: var(--slate);
-      line-height: 1.5;
-      margin-bottom: 10px;
-    }
-    .speaker-tags {
-      display: flex;
-      gap: 8px;
-      flex-wrap: wrap;
-    }
-    .tag {
-      font-family: var(--font-mono);
-      font-size: 11px;
-      color: var(--purple);
-      background: rgba(83,58,253,0.08);
-      border: 1px solid var(--purple-soft);
-      padding: 3px 10px;
-      border-radius: 4px;
-    }
-
-    /* ── FOOTER CTA ── */
-    .footer-cta {
-      background: var(--brand-dark);
-      padding: 80px 24px;
-      text-align: center;
-    }
-    .footer-cta-title {
-      font-size: clamp(26px, 4vw, 38px);
-      font-weight: 300;
-      color: var(--white);
-      letter-spacing: -0.8px;
-      margin-bottom: 16px;
-    }
-    .footer-cta-sub {
-      font-size: 16px;
-      font-weight: 300;
-      color: rgba(255,255,255,0.5);
-      margin-bottom: 36px;
-    }
-    .footer-cta .btn-primary {
-      font-size: 15px;
+    /* ── CARD FOOTER ── */
+    .card-footer {
       padding: 16px 40px;
+      background: #e8eef8;
+      border-top: 1px solid rgba(37,99,235,0.08);
     }
-
-    /* ── FOOTER ── */
-    footer {
-      background: #0d1321;
-      padding: 32px 24px;
+    .card-footer p {
+      font-size: 11px;
+      color: rgba(37,99,235,0.5);
+      letter-spacing: 0.04em;
       text-align: center;
-    }
-    footer p {
-      font-family: var(--font-mono);
-      font-size: 12px;
-      color: rgba(255,255,255,0.25);
-      letter-spacing: 0.5px;
-    }
-
-    /* ── SCROLL ANIMATIONS ── */
-    .fade-up {
-      opacity: 0;
-      transform: translateY(24px);
-      transition: opacity 0.7s ease, transform 0.7s ease;
-    }
-    .fade-up.visible {
-      opacity: 1;
-      transform: translateY(0);
     }
   </style>
 </head>
 <body>
 
-  <!-- NAV -->
-  <nav>
-    <div class="nav-inner">
-      <div class="nav-logo">AI<span>+</span> Education</div>
-      <div class="nav-badge">2026 · 青岛市</div>
-    </div>
-  </nav>
+<div class="card">
 
-  <!-- HERO -->
-  <section class="hero">
-    <div class="hero-eyebrow">青岛市明德学校 · 专场讲座</div>
-    <h1 class="hero-title">AI 时代的<br><em>教学新范式</em></h1>
-    <p class="hero-sub">从认知重塑到工具落地，让 AI 成为教师的得力助手——<br>一场关于如何驾驭智能时代的教学法讲座。</p>
-    <div class="hero-meta">
-      <div class="hero-meta-item">
-        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 0 1 2.25-2.25h13.5A2.25 2.25 0 0 1 21 7.5v11.25m-18 0A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75m-18 0v-7.5A2.25 2.25 0 0 1 5.25 9h13.5A2.25 2.25 0 0 1 21 11.25v7.5" /></svg>
-        2026 年 4 月 17 日
-      </div>
-      <div class="hero-meta-item">
-        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" /></svg>
-        约 2 小时
-      </div>
-      <div class="hero-meta-item">
-        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M15 19.128a9.38 9.38 0 0 0 2.625.372 9.337 9.337 0 0 0 4.121-.952 4.125 4.125 0 0 0-7.533-2.493M15 19.128v-.003c0-1.113-.285-2.16-.786-3.07M15 19.128v.106A12.318 12.318 0 0 1 8.624 21c-2.331 0-4.512-.645-6.374-1.766l-.001-.109a6.375 6.375 0 0 1 11.964-3.07M12 6.375a3.375 3.375 0 1 1-6.75 0 3.375 3.375 0 0 1 6.75 0Zm8.25 2.25a2.625 2.625 0 1 1-5.25 0 2.625 2.625 0 0 1 5.25 0Z" /></svg>
-        中小学教师
-      </div>
+  <!-- HEADER -->
+  <div class="card-header">
+    <div class="header-label">Lecture Outline</div>
+    <h1 class="header-title">AI 时代的<br><span>教学新范式</span></h1>
+    <div class="header-sub">青岛市明德学校 · 教学专题讲座</div>
+    <div class="header-meta">
+      <div class="header-meta-item">时长 <strong>~120 分钟</strong></div>
+      <div class="header-meta-item">三模块 <strong>总分结构</strong></div>
+      <div class="header-meta-item">2026.04.17</div>
     </div>
-    <div class="hero-cta">
-      <a href="#outline" class="btn-primary">
-        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" /></svg>
-        查看讲座大纲
-      </a>
-    </div>
-  </section>
+  </div>
 
-  <!-- PROMISE -->
-  <section class="promise">
-    <div class="promise-label">// What You Will Leave With</div>
-    <p class="promise-text">听完这次讲座，每位老师将带走<strong>至少 3 种可直接使用的 AI 辅助教学工具</strong>，和<strong>一套适合明德学校场景的自动化备课工作流</strong>。</p>
-  </section>
+  <!-- BODY -->
+  <div class="card-body">
 
-  <!-- MODULES -->
-  <section class="section" id="outline">
-    <div class="section-header">
-      <div class="section-num">LECTURE OUTLINE</div>
-      <h2 class="section-title">三模块·总分结构</h2>
-      <p class="section-desc">用"总分总"框架贯穿全场——从认知到工具，从工具到实践。</p>
+    <!-- INTRO -->
+    <div class="outline-intro">
+      <p>本讲座采用<strong>「总分总」三分法框架</strong>：先构建全局认知，再逐层展开工具与应用，最终通过完整案例让方法论内化于心。每位教师听完将带走<strong>可落地的工具工作流</strong>。</p>
     </div>
 
-    <div class="modules-grid">
+    <!-- MODULES -->
+    <div class="modules">
 
       <!-- Module 1 -->
-      <div class="module-card fade-up">
-        <div class="module-num">01</div>
-        <div class="module-icon">🧠</div>
-        <h3 class="module-title">智能时代的认知</h3>
-        <div class="module-sub">第一模块 · 总</div>
-        <div class="module-divider"></div>
-        <ul class="module-points">
-          <li>工业革命视角：消灭的是"重复性脑力劳动"</li>
-          <li>人与 AI 关系三阶段：提示词工程 → 上下文工程 → 驾驭工程</li>
-          <li>驾驭工程核心：不是替代，是放大</li>
-          <li>教师核心竞争力：判断力、价值观、情感连接</li>
-        </ul>
+      <div class="module">
+        <div class="module-header">
+          <div class="module-num">Module 01</div>
+          <div class="module-time">约 10 分钟</div>
+        </div>
+        <div class="module-title">智能时代的认知升级</div>
+        <div class="module-desc">从信息化到数字化再到智能化，理解技术演进规律，认清人与 AI 协同的底层关系，建立清醒而积极的应对姿态。</div>
+        <div class="module-topics">
+          <span class="topic-tag">信息化</span>
+          <span class="topic-tag">数字化</span>
+          <span class="topic-tag">智能化</span>
+          <span class="topic-tag">人机协同</span>
+          <span class="topic-tag">驾驭工程</span>
+        </div>
       </div>
 
       <!-- Module 2 -->
-      <div class="module-card fade-up" style="transition-delay: 0.1s">
-        <div class="module-num">02</div>
-        <div class="module-icon">⚙️</div>
-        <h3 class="module-title">工具应用</h3>
-        <div class="module-sub">第二模块 · 分</div>
-        <div class="module-divider"></div>
-        <ul class="module-points">
-          <li>秘塔搜索：无广告结构化 AI 搜索</li>
-          <li>通义千问 / Kimi：写作、分析、多轮对话</li>
-          <li>讯飞听见：口述即成文字稿</li>
-          <li>iSlide：PPT 智能辅助排版</li>
-          <li>工具串联的完整备课工作流演示</li>
-        </ul>
+      <div class="module">
+        <div class="module-header">
+          <div class="module-num">Module 02</div>
+          <div class="module-time">约 55 分钟</div>
+        </div>
+        <div class="module-title">AI 赋能教育教学的工具体系</div>
+        <div class="module-desc">系统梳理从自动化到智能化场景中教师可用的核心工具，覆盖信息获取、内容创作、效率提升三大类别，并现场演示工具串联的完整工作流。</div>
+        <div class="module-topics">
+          <span class="topic-tag">AI 搜索</span>
+          <span class="topic-tag">内容生成</span>
+          <span class="topic-tag">语音转写</span>
+          <span class="topic-tag">PPT 辅助</span>
+          <span class="topic-tag">自动化工作流</span>
+        </div>
       </div>
 
       <!-- Module 3 -->
-      <div class="module-card fade-up" style="transition-delay: 0.2s">
-        <div class="module-num">03</div>
-        <div class="module-icon">🎯</div>
-        <h3 class="module-title">实践案例演示</h3>
-        <div class="module-sub">第三模块 · 总</div>
-        <div class="module-divider"></div>
-        <ul class="module-points">
-          <li>完整备课工作流现场展示</li>
-          <li>关键环节逐一拆解思维过程</li>
-          <li>从具体案例提炼可迁移方法论</li>
-          <li>案例形式：单元备课 / 真实教学场景</li>
-        </ul>
+      <div class="module">
+        <div class="module-header">
+          <div class="module-num">Module 03</div>
+          <div class="module-time">约 50 分钟</div>
+        </div>
+        <div class="module-title">AI 教学应用案例与方法论</div>
+        <div class="module-desc">通过一个完整的真实教学案例，从需求分析到 AI 协作再到人工优化，完整还原过程。在此基础上拆解底层方法论，帮助每位教师构建<strong>属于自己的自动化教学体系</strong>。</div>
+        <div class="module-topics">
+          <span class="topic-tag">案例还原</span>
+          <span class="topic-tag">方法论提炼</span>
+          <span class="topic-tag">个人体系构建</span>
+        </div>
       </div>
 
     </div>
-  </section>
 
-  <!-- TIMELINE -->
-  <section class="section section-dark" id="schedule">
-    <div class="section-header">
-      <div class="section-num">SCHEDULE</div>
-      <h2 class="section-title">时间安排</h2>
-      <p class="section-desc">约 2 小时，高密度输出，节奏紧凑。</p>
+    <!-- KEY INSIGHT -->
+    <div class="key-insight">
+      <div class="key-insight-label">// Core Insight</div>
+      <div class="key-insight-text">本讲座最核心想传递的，不是工具本身，而是<strong>驾驭 AI 的思维方式</strong>——如何把 AI 变成你的放大器，而不是替代品。方法论比工具更重要。</div>
     </div>
 
-    <div class="timeline">
-      <div class="timeline-item">
-        <div class="timeline-dot">0'</div>
-        <div class="timeline-content">
-          <div class="timeline-time">0 — 5 分钟</div>
-          <div class="timeline-title">开场承诺</div>
-          <div class="timeline-desc">自我介绍 + 做出承诺 + 预览三个模块</div>
-        </div>
-      </div>
-      <div class="timeline-item">
-        <div class="timeline-dot">5'</div>
-        <div class="timeline-content">
-          <div class="timeline-time">5 — 30 分钟</div>
-          <div class="timeline-title">第一模块：智能时代的认知</div>
-          <div class="timeline-desc">工业革命视角、人机关系三阶段、驾驭工程底层逻辑</div>
-        </div>
-      </div>
-      <div class="timeline-item">
-        <div class="timeline-dot">30'</div>
-        <div class="timeline-content">
-          <div class="timeline-time">30 — 65 分钟</div>
-          <div class="timeline-title">第二模块：工具应用</div>
-          <div class="timeline-desc">工具全局图景、逐类演示、完整备课工作流串联演示</div>
-        </div>
-      </div>
-      <div class="timeline-item active">
-        <div class="timeline-dot">65'</div>
-        <div class="timeline-content">
-          <div class="timeline-time">65 — 115 分钟</div>
-          <div class="timeline-title">第三模块：实践案例演示</div>
-          <div class="timeline-desc">完整案例从零到一、关键环节拆解、底层方法论提炼</div>
-        </div>
-      </div>
-      <div class="timeline-item">
-        <div class="timeline-dot">115'</div>
-        <div class="timeline-content">
-          <div class="timeline-time">115 — 120 分钟</div>
-          <div class="timeline-title">总结 & 答疑</div>
-          <div class="timeline-desc">核心要点回顾、现场 Q&A</div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- SPEAKER -->
-  <section class="section" id="speaker">
-    <div class="section-header">
-      <div class="section-num">ABOUT</div>
-      <h2 class="section-title">讲师</h2>
-    </div>
-
-    <div class="speaker fade-up">
-      <div class="speaker-avatar">👨‍🏫</div>
-      <div class="speaker-info">
-        <div class="speaker-name">Theo</div>
-        <div class="speaker-title">AI+ 教育教学实践者 / 独立讲师<br>专注教育场景的 AI 工具化与工作流设计</div>
-        <div class="speaker-tags">
-          <span class="tag">驾驭工程</span>
-          <span class="tag">AI 备课工作流</span>
-          <span class="tag">教学设计</span>
-          <span class="tag">教师培训</span>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- FOOTER CTA -->
-  <section class="footer-cta">
-    <h2 class="footer-cta-title">准备好进入 AI 教学新时代了吗</h2>
-    <p class="footer-cta-sub">2026 年 4 月 17 日 · 青岛市明德学校</p>
-    <a href="#outline" class="btn-primary">
-      再次查看讲座大纲
-      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" /></svg>
-    </a>
-  </section>
+  </div>
 
   <!-- FOOTER -->
-  <footer>
-    <p>AI+ Education · Designed by Theo · 2026</p>
-  </footer>
+  <div class="card-footer">
+    <p>Theo · AI+ Education · 2026</p>
+  </div>
 
-  <script>
-    // Scroll animations
-    var observer = new IntersectionObserver(function(entries) {
-      entries.forEach(function(e) {
-        if (e.isIntersecting) {
-          e.target.classList.add('visible');
-        }
-      });
-    }, { threshold: 0.1 });
-
-    document.querySelectorAll('.fade-up').forEach(function(el) {
-      observer.observe(el);
-    });
-
-    // Smooth scroll for anchor links
-    document.querySelectorAll('a[href^="#"]').forEach(function(a) {
-      a.addEventListener('click', function(e) {
-        e.preventDefault();
-        var target = document.querySelector(this.getAttribute('href'));
-        if (target) {
-          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-        }
-      });
-    });
-  </script>
+</div>
 
 </body>
 </html>
