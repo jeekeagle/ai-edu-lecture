@@ -21,6 +21,7 @@
     .card {
       width: 480px;
       max-width: 100%;
+      min-height: 640px;
       background: #f0f4fb;
       border-radius: 6px;
       overflow: hidden;
@@ -89,7 +90,6 @@
 
     /* ── ZH Content ── */
     .zh { display: block; }
-    .en { display: none; }
 
     body.en .zh { display: none; }
     body.en .en { display: block; }
@@ -277,7 +277,7 @@
     .card-footer p { font-size: 11px; color: rgba(37,99,235,0.5); letter-spacing: 0.04em; text-align: center; }
   </style>
 </head>
-<body>
+<body data-lang="zh">
 
 <div class="card">
 
@@ -389,9 +389,9 @@
     </div>
 
     <!-- KEY INSIGHT EN -->
-    <div class="key-insight en" style="margin-top:28px;background:#1a3a6e;border-radius:4px;padding:20px 24px;position:relative;overflow:hidden;">
+    <div class="key-insight en" style="display:none;margin-top:28px;background:#1a3a6e;border-radius:4px;padding:20px 24px;position:relative;overflow:hidden;">
       <div class="key-insight-label">// Core Insight</div>
-      <div class="key-insight-text" style="font-size:14px;line-height:1.7;color:rgba(255,255,255,0.85);">The core message is not about the tools themselves, but <strong>the mindset of harnessing AI</strong> — how to make AI your amplifier, not your replacement. Methodology beats tools.</div>
+      <div class="key-insight-text" style="font-size:14px;line-height:1.7;color:rgba(255,255,255,0.85);">The core message is not about the tools itself, but <strong>the mindset of harnessing AI</strong> — how to make AI your amplifier, not your replacement. Methodology beats tools.</div>
     </div>
 
   </div>
@@ -405,7 +405,7 @@
 
 <script>
   function switchLang(lang) {
-    document.body.className = lang;
+    document.body.setAttribute('data-lang', lang);
     document.getElementById('btn-zh').classList.toggle('active', lang === 'zh');
     document.getElementById('btn-en').classList.toggle('active', lang === 'en');
   }
